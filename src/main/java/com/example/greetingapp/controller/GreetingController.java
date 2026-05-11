@@ -48,6 +48,11 @@ public class GreetingController {
         return greetingService.findGreetings();
     }
 
+      @GetMapping("/")
+public String homePage() {
+    return "index";
+}
+
     @PutMapping("/editGreeting/{id}")
     public Greeting editGreeting(@RequestBody Greeting greeting, @PathVariable Integer id){
         return greetingService.editGreeting(greeting, id);

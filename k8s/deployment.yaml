@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: greeting-app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: greeting-app
+
+  template:
+    metadata:
+      labels:
+        app: greeting-app
+
+    spec:
+      containers:
+      - name: greeting-app
+
+        image: skye06024/greeting-app:v1
+
+        ports:
+        - containerPort: 8080
+          hostPort: 8081
